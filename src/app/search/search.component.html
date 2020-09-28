@@ -1,0 +1,19 @@
+<h3>Search for Movies!</h3>
+
+<div>
+    <input type="text" placeholder="Movie Title" ([ngModel])="title">
+    <button (click)= "searchMovie()">Search</button>
+</div>
+<div>
+    <input type="text" placeholder="Year" ([ngModel])="year">
+</div>
+<div>
+    <label>Type</label>
+    <select id = "type" ([ngModel])="type">
+        <option value="movie">Movies</option>
+        <option value="episodes">Episodes</option>
+        <li *ngFor = "let search of poster">
+            <img src="[poster]" alt="Movie Poster">
+        </li>
+    </select>
+</div>
