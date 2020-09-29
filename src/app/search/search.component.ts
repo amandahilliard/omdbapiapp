@@ -13,20 +13,27 @@ export class SearchComponent implements OnInit {
   type: string = "type";
   movie: Array<Movie>;
   poster: string = "";
+  Response: boolean;
+  error: string;
 
   constructor(private searchService: SearchService) { }
 
   searchMovie(){
+   this.searchService.searchMovie(this.title, this.year, this.type).subscribe(res =>{
     if(this.title.length < 3){
-    return 
-    }
-    this.searchService.searchMovie(this.title, this.year, this.type).subscribe((res: Array<Movie>)=> this.movie = res);
-
+      return
+      }
+      if(this.Response === true){
+        this.year, this.title, this.type
+      }
+      else {
+        return this.error
+      }
+   })
   }
 
   ngOnInit(): void {
   
-
   }
 
 }
